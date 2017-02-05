@@ -84,7 +84,7 @@
 
 
 
-<meta name="description" content="2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
+<meta name="description" content="两年没写博客了。2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
 
 通过Hexo+Github搭建个人博客:
  网上的相关文章和参考资料很多，这里简单把参考的一些资料整合过来。
@@ -95,12 +95,12 @@
   到Node.js官网下载相应平台的最新版本，一路安装即可。
 
 安装Git（必须）
-  作用：把本地的hexo内容提交到github">
+  作用：把本地的hexo内容提">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hi~ 2017">
 <meta property="og:url" content="http://yoursite.com/2017/02/05/hi 2017/index.html">
 <meta property="og:site_name" content="天空没有痕迹但我飞过">
-<meta property="og:description" content="2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
+<meta property="og:description" content="两年没写博客了。2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
 
 通过Hexo+Github搭建个人博客:
  网上的相关文章和参考资料很多，这里简单把参考的一些资料整合过来。
@@ -111,11 +111,12 @@
   到Node.js官网下载相应平台的最新版本，一路安装即可。
 
 安装Git（必须）
-  作用：把本地的hexo内容提交到github">
-<meta property="og:updated_time" content="2017-02-05T13:01:10.000Z">
+  作用：把本地的hexo内容提">
+<meta property="og:image" content="http://i1.piimg.com/4851/24e5614f05d732e6.jpg">
+<meta property="og:updated_time" content="2017-02-05T14:09:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hi~ 2017">
-<meta name="twitter:description" content="2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
+<meta name="twitter:description" content="两年没写博客了。2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~
 
 通过Hexo+Github搭建个人博客:
  网上的相关文章和参考资料很多，这里简单把参考的一些资料整合过来。
@@ -126,7 +127,8 @@
   到Node.js官网下载相应平台的最新版本，一路安装即可。
 
 安装Git（必须）
-  作用：把本地的hexo内容提交到github">
+  作用：把本地的hexo内容提">
+<meta name="twitter:image" content="http://i1.piimg.com/4851/24e5614f05d732e6.jpg">
 
 
 
@@ -368,7 +370,7 @@
       
 
       
-        <p>2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~</p>
+        <p>两年没写博客了。2017年的小目标就从这篇博客开始吧~O(∩_∩)O哈哈~</p>
 <hr>
 <p><strong>通过Hexo+Github搭建个人博客:</strong></p>
 <p> 网上的相关文章和参考资料很多，这里简单把参考的一些资料整合过来。</p>
@@ -446,6 +448,26 @@ hexo deploy
 <p><a href="http://blog.csdn.net/li740207611/article/details/51781798" target="_blank" rel="external">使用七牛云存储作为博客图床</a></p>
 </li>
 </ul>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><ul>
+<li><p>解析域名<br>以购买的域名lonshine.com为例，我们希望在访问这个域名时能自动进入Github Pages，所以我们要在万网建立一个CNAME纪录来帮我们做一个域名跳转：lonshine.com -&gt; lonshine.github.io，www. lonshine.com -&gt; lonshine.github.io。lonshine.com -&gt; ip地址。添加后可以看到三条记录：<br><img src="http://i1.piimg.com/4851/24e5614f05d732e6.jpg" alt="jiexi"></p>
+<p>然后万网会在世界各地的DNS服务器上添加这两条记录，当用户访问lonshine.com时会自动去访问lonshine.github.io。</p>
+</li>
+<li><p>域名解析配置</p>
+<p>此时并不能成功访问，因为Github Pages是有限制的，它不允许任意域名都跳转过来，而是只限制一个域名，而且这个域名必须声明在CNAME文件中。</p>
+<p>所以，我们需要添加一个CNAME文件到项目的master中才行，添加方法：</p>
+<p>方法一：在站点source目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如lonshine.com。</p>
+<p>方法二：在Repository的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如lonshine.com。</p>
+<p>CNAME文件没有后缀名。</p>
+<p>然后在GitHub Pages站点的repository设置里添加自定义域名,<a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/" target="_blank" rel="external">参考这里</a>。</p>
+<p>不过，对于Hexo 3，这里有一个坑要注意：大家应该还记得上文说的，master分支里的内容都是自动生成的，而且会完全覆盖之前的内容。如果我们直接创建一个新文件CNAME，填好域名。但会发现在下一次部署后这个文件就消失了。不用惊讶，因为hexo并不会自动生成CNAME文件，所以在部署时被覆盖删除了。</p>
+<p>所以，我们就需要这个CNAME工具<a href="https://github.com/leecrossley/hexo-generator-cname" target="_blank" rel="external">hexo-generator-cname</a>，这时会自动在public里生成一个CNAME文件，把你的域名加进去再部署一下吧！</p>
+<blockquote>
+<p>以上部分域名解析内容参考自: </p>
+<p><a href="http://www.jianshu.com/p/99665608d295" target="_blank" rel="external">[干货]如何在一天之内搭建以你自己名字为域名且具备cool属性的个人博客</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>太饿了，没想到今天竟然就坐在电脑前一直忙活到现在，仿佛瞬间回到两三年前熬夜码字写博客的样子。晚上十点整，该出去找顿吃的了。。。</p>
 
       
     </div>
@@ -468,22 +490,6 @@ hexo deploy
     <footer class="post-footer">
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/05/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -550,7 +556,7 @@ hexo deploy
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +595,7 @@ hexo deploy
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正式安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">正式安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Github"><span class="nav-number">3.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署步骤"><span class="nav-number">4.</span> <span class="nav-text">部署步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">5.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片云存储"><span class="nav-number">6.</span> <span class="nav-text">图片云存储</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正式安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">正式安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Github"><span class="nav-number">3.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署步骤"><span class="nav-number">4.</span> <span class="nav-text">部署步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">5.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片云存储"><span class="nav-number">6.</span> <span class="nav-text">图片云存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析"><span class="nav-number">7.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
